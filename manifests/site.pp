@@ -51,6 +51,15 @@ Service {
 
 Homebrew::Formula <| |> -> Package <| |>
 
+define download ($source, $path = $name, $timeout = 300) {
+  exec {
+    "download $source":
+    command => "curl -s -o $path $source",
+    creates => $path,
+    timeout => $timeout,
+  }
+}
+
 node default {
   # core modules, needed for most things
   include dnsmasq
@@ -76,7 +85,8 @@ node default {
     [
       'ack',
       'findutils',
-      'gnu-tar'
+      'gnu-tar',
+      'git-crypt'
     ]:
   }
 

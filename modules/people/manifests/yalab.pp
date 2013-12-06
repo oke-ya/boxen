@@ -21,6 +21,7 @@ class emacs {
   }
 }
 
+
 class people::yalab {
   include autoconf
   include emacs
@@ -35,7 +36,7 @@ class people::yalab {
 
 
   package {
-    ['cmigemo']:
+    ['cmigemo', 'fontforge']:
   }
 
   file { $project_dir: 
@@ -63,5 +64,44 @@ class people::yalab {
     ensure  => 'link',
     target  => "${dotfiles}/.gitconfig",
     require => Repository[$dotfiles]
+  }
+
+  download { "Inconsolata.otf":
+    path   => "${home}/Downloads/Inconsolata.otf",
+    source => "http://levien.com/type/myfonts/Inconsolata.otf"
+  }
+
+  download { "migu-1m-20130617.zip":
+    path   => "${home}/Downloads/migu-1m-20130617.zip",
+    source => "http://sourceforge.jp/frs/redir.php?m=iij&f=%2Fmix-mplus-ipa%2F59022%2Fmigu-1m-20130617.zip"
+  }
+
+  exec { "unzip mig-1m":
+    cwd     => "${home}/Downloads",
+    user    => "${::boxen_user}",
+    command => "unzip http://sourceforge.jp/frs/redir.php?m=iij&f=%2Fmix-mplus-ipa%2F59022%2Fmigu-1m-20130617.zip",
+    require => Download["migu-1m-20130617.zip"]
+  }
+
+  download { "ricty_generator.sh":
+    path   => "${home}/Downloads/ricty_generator.sh",
+    source => "https://raw.github.com/yascentur/Ricty/3.2.2/ricty_generator.sh"
+  }
+
+  exec { "Generate Ricty font":
+    cwd     => "${home}/Downloads",
+    user    => "${::boxen_user}",
+    command => "sh ricty_generator.sh Inconsolata.otf migu-1m-20130617-2/migu-1m-regular.ttf migu-1m-20130617-2/migu-1m-bold.ttf",
+    require => [Package['fontforge'], Exec["unzip mig-1m"]]
+  }
+
+  file {"/Library/Fonts/Ricty-Bold.ttf":
+    source => "${home}/Downloads/Ricty-Bold.ttf",
+    require => Exec["Generate Ricty font"]
+  }
+
+  file {"/Library/Fonts/Ricty-Regular.ttf":
+    source => "${home}/Downloads/Ricty-Regular.ttf",
+    require => Exec["Generate Ricty font"]
   }
 }
