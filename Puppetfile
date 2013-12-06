@@ -55,3 +55,15 @@ github "xquartz",    "1.1.0"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+github "sysctl"
+github "autoconf",   "1.0.0"
+github "mysql"
+github "memcached"
+github "postgresql"
+github "vagrant"
+github "virtualbox"
+github "chrome"
+github "firefox"
+github "hipchat"
+github "skype"
+github "dropbox"

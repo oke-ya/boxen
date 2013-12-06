@@ -1,12 +1,32 @@
 GITHUBTARBALL
+  remote: boxen/puppet-autoconf
+  specs:
+    autoconf (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (3.3.4)
 
 GITHUBTARBALL
+  remote: boxen/puppet-chrome
+  specs:
+    chrome (1.1.2)
+
+GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
   specs:
     dnsmasq (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-dropbox
+  specs:
+    dropbox (1.2.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-firefox
+  specs:
+    firefox (1.1.5)
 
 GITHUBTARBALL
   remote: boxen/puppet-foreman
@@ -29,6 +49,11 @@ GITHUBTARBALL
     go (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-hipchat
+  specs:
+    hipchat (1.1.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (1.5.1)
@@ -37,6 +62,16 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.0.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-memcached
+  specs:
+    memcached (1.4.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-mysql
+  specs:
+    mysql (1.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
@@ -64,6 +99,11 @@ GITHUBTARBALL
     pkgconfig (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-postgresql
+  specs:
+    postgresql (2.2.2)
+
+GITHUBTARBALL
   remote: boxen/puppet-repository
   specs:
     repository (2.2.0)
@@ -74,9 +114,29 @@ GITHUBTARBALL
     ruby (6.7.2)
 
 GITHUBTARBALL
+  remote: boxen/puppet-skype
+  specs:
+    skype (1.0.7)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-sysctl
+  specs:
+    sysctl (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-vagrant
+  specs:
+    vagrant (3.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-virtualbox
+  specs:
+    virtualbox (1.0.9)
 
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
@@ -94,23 +154,35 @@ GITHUBTARBALL
     stdlib (4.1.0)
 
 DEPENDENCIES
+  autoconf (= 1.0.0)
   boxen (= 3.3.4)
+  chrome (>= 0)
   dnsmasq (= 1.0.0)
+  dropbox (>= 0)
+  firefox (>= 0)
   foreman (= 1.0.0)
   gcc (= 2.0.1)
   git (= 1.2.5)
   go (= 1.0.0)
+  hipchat (>= 0)
   homebrew (= 1.5.1)
   hub (= 1.0.3)
   inifile (= 1.0.0)
+  memcached (>= 0)
+  mysql (>= 0)
   nginx (= 1.4.2)
   nodejs (= 3.3.0)
   openssl (= 1.0.0)
   phantomjs (= 2.0.2)
   pkgconfig (= 1.0.0)
+  postgresql (>= 0)
   repository (= 2.2.0)
   ruby (= 6.7.2)
+  skype (>= 0)
   stdlib (= 4.1.0)
   sudo (= 1.0.0)
+  sysctl (>= 0)
+  vagrant (>= 0)
+  virtualbox (>= 0)
   xquartz (= 1.1.0)
 
