@@ -78,7 +78,7 @@ node default {
   class { 'nodejs::global': }
 
   # default ruby versions
-  include ruby::2_0_0
+  include ruby::2_0_0_p353
 
   # common, useful packages
   package {
