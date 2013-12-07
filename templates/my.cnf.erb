@@ -1,0 +1,16 @@
+[client]
+port=<%= scope.lookupvar "mysql::config::port" %>
+socket=<%= scope.lookupvar "mysql::config::socket" %>
+default-character-set=utf8mb4
+
+[server]
+datadir=<%= scope.lookupvar "mysql::config::datadir" %>
+log-error=<%= scope.lookupvar "mysql::config::logerror" %>
+port=<%= scope.lookupvar "mysql::config::port" %>
+socket=<%= scope.lookupvar "mysql::config::socket" %>
+max_allowed_packet=1073741824
+character-set-server=utf8mb4
+skip-character-set-client-handshake
+innodb_file_format = Barracuda
+innodb_file_per_table = 1
+innodb_large_prefix

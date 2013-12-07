@@ -94,4 +94,10 @@ node default {
     ensure => link,
     target => $boxen::config::repodir
   }
+
+
+  File <| title == $mysql::config::configfile |> {
+    content => template("${boxen::config::repodir}/templates/my.cnf.erb"),
+    notify => Service['dev.mysql'],
+  }
 }
