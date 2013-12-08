@@ -61,6 +61,11 @@ define download ($source, $path = $name, $timeout = 300) {
 }
 
 node default {
+  class { 'memcached':
+      port => 11211,
+      host => "localhost"
+  }
+
   # core modules, needed for most things
   include dnsmasq
   include git
