@@ -66,6 +66,12 @@ class people::yalab {
     require => Repository[$dotfiles]
   }
 
+  file { "${home}/.gitignore":
+    ensure  => 'link',
+    target  => "${dotfiles}/.gitignore",
+    require => Repository[$dotfiles]
+  }
+
   download { "Inconsolata.otf":
     path   => "${home}/Downloads/Inconsolata.otf",
     source => "http://levien.com/type/myfonts/Inconsolata.otf"
