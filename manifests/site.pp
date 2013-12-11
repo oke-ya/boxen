@@ -91,7 +91,8 @@ node default {
       'ack',
       'findutils',
       'gnu-tar',
-      'git-crypt'
+      'git-crypt',
+      'phantomjs'
     ]:
   }
 
