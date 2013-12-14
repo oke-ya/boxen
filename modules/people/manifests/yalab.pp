@@ -87,7 +87,8 @@ class people::yalab {
     cwd     => "${home}/Downloads",
     user    => "${::boxen_user}",
     command => "unzip http://sourceforge.jp/frs/redir.php?m=iij&f=%2Fmix-mplus-ipa%2F59022%2Fmigu-1m-20130617.zip",
-    require => Download["migu-1m-20130617.zip"]
+    require => Download["migu-1m-20130617.zip"],
+    unless => ["test -f /Library/Fonts/Ricty-Regular.ttf"]
   }
 
   download { "ricty_generator.sh":
@@ -99,7 +100,8 @@ class people::yalab {
     cwd     => "${home}/Downloads",
     user    => "${::boxen_user}",
     command => "sh ricty_generator.sh Inconsolata.otf migu-1m-20130617-2/migu-1m-regular.ttf migu-1m-20130617-2/migu-1m-bold.ttf",
-    require => [Package['fontforge'], Exec["unzip mig-1m"]]
+    require => [Package['fontforge'], Exec["unzip mig-1m"]],
+    unless => ["test -f /Library/Fonts/Ricty-Regular.ttf"]
   }
 
   file {"/Library/Fonts/Ricty-Bold.ttf":
