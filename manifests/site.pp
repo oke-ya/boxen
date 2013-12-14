@@ -82,8 +82,9 @@ node default {
   # node versions
   include nodejs::v0_10
   class { 'nodejs::global': }
-  nodejs::module {"bower":      node_version => 'v0.10' }
-  nodejs::module {"grunt-cli":  node_version => 'v0.10' }
+  nodejs::module {"bower":         node_version => 'v0.10' }
+  nodejs::module {"grunt-cli":     node_version => 'v0.10' }
+  nodejs::module {"grunt-docular": node_version => 'v0.10' }
 
   # default ruby versions
   include ruby::2_0_0_p353
