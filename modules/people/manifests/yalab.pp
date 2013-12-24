@@ -113,4 +113,5 @@ class people::yalab {
     source => "${home}/Downloads/Ricty-Regular.ttf",
     require => Exec["Generate Ricty font"]
   }
+  nodejs::module {"generator-angular": node_version => 'v0.10' }
 }
