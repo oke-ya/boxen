@@ -83,11 +83,15 @@ node default {
   include nodejs::v0_10
   class { 'nodejs::global': }
   nodejs::module {"bower":         node_version => 'v0.10' }
+  nodejs::module {"yo":            node_version => 'v0.10' }
   nodejs::module {"grunt-cli":     node_version => 'v0.10' }
   nodejs::module {"grunt-docular": node_version => 'v0.10' }
 
   # default ruby versions
   include ruby::2_0_0_p353
+
+  include python
+  python::pip {"PyYAML": virtualenv => "${python::config::global_venv}"}
 
   # common, useful packages
   package {
@@ -96,7 +100,9 @@ node default {
       'findutils',
       'gnu-tar',
       'git-crypt',
-      'phantomjs'
+      'phantomjs',
+      'doxygen',
+      'imagemagick'
     ]:
   }
 
