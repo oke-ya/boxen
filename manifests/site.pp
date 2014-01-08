@@ -119,4 +119,9 @@ node default {
     content => template("${boxen::config::repodir}/templates/my.cnf.erb"),
     notify => Service['dev.mysql'],
   }
+
+  mysql::user::grant{$boxen_user:
+    database => "*",
+    username => $boxen_user
+  }
 }
