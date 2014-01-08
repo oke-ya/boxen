@@ -88,7 +88,9 @@ node default {
   nodejs::module {"grunt-docular": node_version => 'v0.10' }
 
   # default ruby versions
-  include ruby::2_0_0_p353
+  include ruby
+  class { 'ruby::global': version => '2.0.0-p353' }
+  ruby::version { '2.1.0': }
 
   include python
   python::pip {"PyYAML": virtualenv => "${python::config::global_venv}"}
@@ -102,7 +104,8 @@ node default {
       'git-crypt',
       'phantomjs',
       'doxygen',
-      'imagemagick'
+      'imagemagick',
+      'qt'
     ]:
   }
 
