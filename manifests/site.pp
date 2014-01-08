@@ -124,4 +124,12 @@ node default {
     database => "*",
     username => $boxen_user
   }
+
+  include vagrant
+  exec {"Add precise64 vagrant box":
+      user    => $boxen_user,
+      command => "vagrant box add precise64 http://files.vagrantup.com/precise64.box",
+      timeout => 1200,
+      unless => "vagrant box list | grep precise64 2>/dev/null"
+  }
 }
