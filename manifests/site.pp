@@ -105,7 +105,8 @@ node default {
       'phantomjs',
       'doxygen',
       'imagemagick',
-      'qt'
+      'qt',
+      'pcre'
     ]:
   }
 
