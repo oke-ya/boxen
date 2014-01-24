@@ -31,13 +31,18 @@ class people::yalab {
   include dropbox
   include skype
 
+  class { 'redis':
+      port => 6379
+  }
+  include redis
+
   $home = "/Users/${::boxen_user}"
   $project_dir = "${home}/project"
   $dotfiles   = "${project_dir}/dotfiles"
 
 
   package {
-    ['cmigemo', 'fontforge']:
+    ['cmigemo', 'fontforge', 'gcc48']:
   }
 
   file { $project_dir: 
@@ -114,4 +119,6 @@ class people::yalab {
     require => Exec["Generate Ricty font"]
   }
   nodejs::module {"generator-angular": node_version => 'v0.10' }
+  nodejs::module {"coffee-script":     node_version => 'v0.10' }
+  nodejs::module {"hubot":             node_version => 'v0.10' }
 }
