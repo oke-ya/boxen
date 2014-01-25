@@ -42,7 +42,7 @@ class people::yalab {
 
 
   package {
-    ['cmigemo', 'fontforge', 'gcc48']:
+    ['cmigemo', 'fontforge', 'gcc48', 'icu4c']:
   }
 
   file { $project_dir: 
