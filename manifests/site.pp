@@ -133,4 +133,11 @@ node default {
       timeout => 1200,
       unless => "vagrant box list | grep precise64 2>/dev/null"
   }
+
+  exec {
+    'pip install awscli':
+    cwd    => '/tmp',
+    path   => [ '/bin','/usr/bin','/opt/boxen/homebrew/bin' ],
+    unless => ['which aws 2>/dev/null']
+  }
 }
